@@ -66,13 +66,13 @@ function loadProfileData() {
   if (savedProfile) {
     const profileData = JSON.parse(savedProfile);
 
-    displayNama.textContent = profileData.nama || 'Nama Anda';
-    displayRole.textContent = profileData.role || 'Front End Designer';
-    displayAvailability.innerHTML = `<strong>Availability</strong> ${profileData.availability || 'Test'}`;
-    displayUmur.innerHTML = `<strong>Umur</strong> ${profileData.umur || 'Test'}`;
-    displayLokasi.innerHTML = `<strong>Lokasi</strong> ${profileData.lokasi || 'Test'}`;
-    displayPengalaman.innerHTML = `<strong>Pengalaman</strong> ${profileData.pengalaman || 'Test'}`;
-    displayEmail.innerHTML = `<strong>Email</strong> ${profileData.email || 'Test'}`;
+    displayNama.textContent = profileData.nama || 'Your Name';
+    displayRole.textContent = profileData.role || 'Your Role';
+    displayAvailability.innerHTML = `<strong>Availability</strong> ${profileData.availability || 'Empty'}`;
+    displayUmur.innerHTML = `<strong>Umur</strong> ${profileData.umur || 'Empty'}`;
+    displayLokasi.innerHTML = `<strong>Lokasi</strong> ${profileData.lokasi || 'Empty'}`;
+    displayPengalaman.innerHTML = `<strong>Pengalaman</strong> ${profileData.pengalaman || 'Empty'}`;
+    displayEmail.innerHTML = `<strong>Email</strong> ${profileData.email || 'Empty'}`;
 
     inputNama.value = profileData.nama;
     inputRole.value = profileData.role;
