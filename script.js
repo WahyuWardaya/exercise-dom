@@ -20,6 +20,7 @@ const inputEmail = document.getElementById('btn-email').querySelector('input');
 
 window.onload = function () {
   editForm.style.display = 'none';
+  loadProfileData();
 };
 
 editProfileBtn.addEventListener('click', function () {
@@ -35,6 +36,19 @@ submitBtn.addEventListener('click', function () {
   const pengalamanValue = inputPengalaman.value;
   const emailValue = inputEmail.value;
 
+  localStorage.setItem(
+    'profileData',
+    JSON.stringify({
+      nama: namaValue,
+      role: roleValue,
+      availability: availabilityValue,
+      umur: umurValue,
+      lokasi: lokasiValue,
+      pengalaman: pengalamanValue,
+      email: emailValue,
+    })
+  );
+
   displayNama.textContent = namaValue || 'Nama Anda';
   displayRole.textContent = roleValue || 'Front End Designer';
   displayAvailability.innerHTML = `<strong>Availability</strong> ${availabilityValue || 'Test'}`;
@@ -45,3 +59,27 @@ submitBtn.addEventListener('click', function () {
 
   editForm.style.display = 'none';
 });
+
+function loadProfileData() {
+  const savedProfile = localStorage.getItem('profileData');
+
+  if (savedProfile) {
+    const profileData = JSON.parse(savedProfile);
+
+    displayNama.textContent = profileData.nama || 'Nama Anda';
+    displayRole.textContent = profileData.role || 'Front End Designer';
+    displayAvailability.innerHTML = `<strong>Availability</strong> ${profileData.availability || 'Test'}`;
+    displayUmur.innerHTML = `<strong>Umur</strong> ${profileData.umur || 'Test'}`;
+    displayLokasi.innerHTML = `<strong>Lokasi</strong> ${profileData.lokasi || 'Test'}`;
+    displayPengalaman.innerHTML = `<strong>Pengalaman</strong> ${profileData.pengalaman || 'Test'}`;
+    displayEmail.innerHTML = `<strong>Email</strong> ${profileData.email || 'Test'}`;
+
+    inputNama.value = profileData.nama;
+    inputRole.value = profileData.role;
+    inputAvailability.value = profileData.availability;
+    inputUmur.value = profileData.umur;
+    inputLokasi.value = profileData.lokasi;
+    inputPengalaman.value = profileData.pengalaman;
+    inputEmail.value = profileData.email;
+  }
+}
