@@ -40,7 +40,7 @@
 }
 
 .main-profile {
-  flex: 1;
+  flex: 2;
 }
 
 .main-profile h2 {
@@ -64,7 +64,7 @@
 }
 
 .info-profile {
-  flex: 2;
+  flex: 3;
 }
 
 .info-profile ul {
